@@ -56,34 +56,28 @@ export function TheVault() {
   ];
 
   return (
-    <section className="py-16 px-6 md:px-12 bg-black/30">
+    <section className="py-20 px-6 md:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-3 font-['Playfair_Display']">
-            MISSED FOREVER
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-semibold text-black mb-4 font-['Montserrat']">
+            Past Drops
           </h2>
-          <p className="text-gray-400 font-['Montserrat']">
-            These exclusive pieces are gone. Don't let today's drop slip away.
+          <p className="text-gray-600 font-['Montserrat']">
+            These exclusive pieces are no longer available
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {soldOutProducts.map((product) => (
             <div
               key={product.id}
-              className="relative group overflow-hidden rounded-lg aspect-[3/4] border border-gray-800"
+              className="group overflow-hidden aspect-[3/4] border border-gray-200 hover:border-black transition-all"
             >
               <ImageWithFallback
                 src={product.image}
                 alt={product.name}
-                className="w-full h-full object-cover grayscale"
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all"
               />
-              <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center">
-                <div className="bg-red-600 text-white px-6 py-3 rounded-lg rotate-[-12deg] font-['Playfair_Display'] font-bold text-lg border-4 border-white shadow-xl">
-                  SOLD OUT
-                </div>
-                <p className="text-white mt-4 text-sm font-['Montserrat']">{product.date}</p>
-              </div>
             </div>
           ))}
         </div>
@@ -91,7 +85,7 @@ export function TheVault() {
         <div className="text-center mt-12">
           <Link
             to="/archive"
-            className="inline-flex items-center gap-3 bg-gray-800 hover:bg-gray-700 text-white px-8 py-4 rounded-xl font-['Montserrat'] font-semibold transition-all hover:scale-105"
+            className="inline-flex items-center gap-3 bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-sm font-['Montserrat'] font-medium transition-all"
           >
             View Full Archive
             <ArrowRight className="w-5 h-5" />

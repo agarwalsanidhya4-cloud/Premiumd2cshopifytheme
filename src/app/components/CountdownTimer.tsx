@@ -38,30 +38,30 @@ export function CountdownTimer({ className = '' }: CountdownTimerProps) {
   return (
     <div className={`flex gap-4 items-center ${className}`}>
       <div className="flex flex-col items-center">
-        <div className="bg-[#D4AF37]/10 border-2 border-[#D4AF37] rounded-lg px-4 py-3 min-w-[70px] text-center">
-          <span className="text-3xl font-bold text-[#D4AF37] font-['Playfair_Display']">
+        <div className="bg-white border border-gray-300 rounded-sm px-4 py-3 min-w-[70px] text-center">
+          <span className="text-3xl font-medium text-black font-['Montserrat']">
             {String(timeLeft.hours).padStart(2, '0')}
           </span>
         </div>
-        <span className="text-xs text-gray-400 mt-1 font-['Montserrat']">HOURS</span>
+        <span className="text-xs text-gray-500 mt-1 font-['Montserrat']">HOURS</span>
       </div>
-      <span className="text-2xl text-[#D4AF37] font-bold">:</span>
+      <span className="text-2xl text-gray-400 font-medium">:</span>
       <div className="flex flex-col items-center">
-        <div className="bg-[#D4AF37]/10 border-2 border-[#D4AF37] rounded-lg px-4 py-3 min-w-[70px] text-center">
-          <span className="text-3xl font-bold text-[#D4AF37] font-['Playfair_Display']">
+        <div className="bg-white border border-gray-300 rounded-sm px-4 py-3 min-w-[70px] text-center">
+          <span className="text-3xl font-medium text-black font-['Montserrat']">
             {String(timeLeft.minutes).padStart(2, '0')}
           </span>
         </div>
-        <span className="text-xs text-gray-400 mt-1 font-['Montserrat']">MINUTES</span>
+        <span className="text-xs text-gray-500 mt-1 font-['Montserrat']">MINUTES</span>
       </div>
-      <span className="text-2xl text-[#D4AF37] font-bold">:</span>
+      <span className="text-2xl text-gray-400 font-medium">:</span>
       <div className="flex flex-col items-center">
-        <div className="bg-[#D4AF37]/10 border-2 border-[#D4AF37] rounded-lg px-4 py-3 min-w-[70px] text-center">
-          <span className="text-3xl font-bold text-[#D4AF37] font-['Playfair_Display']">
+        <div className="bg-white border border-gray-300 rounded-sm px-4 py-3 min-w-[70px] text-center">
+          <span className="text-3xl font-medium text-black font-['Montserrat']">
             {String(timeLeft.seconds).padStart(2, '0')}
           </span>
         </div>
-        <span className="text-xs text-gray-400 mt-1 font-['Montserrat']">SECONDS</span>
+        <span className="text-xs text-gray-500 mt-1 font-['Montserrat']">SECONDS</span>
       </div>
     </div>
   );

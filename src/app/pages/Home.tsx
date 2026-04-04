@@ -3,7 +3,7 @@ import { ProgressBar } from '../components/ProgressBar';
 import { TrustBadges } from '../components/TrustBadges';
 import { TheVault } from '../components/TheVault';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
-import { ChevronDown, Sparkles, Package } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export function Home() {
   const product = {
@@ -16,110 +16,100 @@ export function Home() {
     image: 'https://images.unsplash.com/photo-1756483515151-468b4b5ca1ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
     description: 'An exquisite turquoise and gold lehenga set featuring intricate zardozi work and hand-embroidered peacock motifs. This masterpiece takes 240+ hours of skilled craftsmanship.',
     details: {
-      fabric: 'Pure Banarasi Silk with Gold Zari',
-      work: 'Hand Embroidery, Zardozi, Stone Work',
-      occasion: 'Weddings, Grand Celebrations',
-      delivery: '10-12 Days (Made-to-Order)'
+      Fabric: 'Pure Banarasi Silk with Gold Zari',
+      Work: 'Hand Embroidery, Zardozi, Stone Work',
+      Occasion: 'Weddings, Grand Celebrations',
+      Delivery: '10-12 Days (Made-to-Order)'
     }
   };
 
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-20 md:pt-24 pb-8 px-6 md:px-12">
+      <section className="pt-24 md:pt-32 pb-16 px-6 md:px-12 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+          {/* Title */}
+          <div className="text-center mb-12">
+            <p className="text-sm text-gray-500 mb-3 font-['Montserrat'] tracking-wider uppercase">
+              Today's Drop
+            </p>
+            <h1 className="text-5xl md:text-7xl font-semibold mb-6 font-['Montserrat'] leading-tight text-black">
+              {product.name}
+            </h1>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto font-['Montserrat']">
+              {product.description}
+            </p>
+          </div>
+
+          {/* Main Content */}
+          <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Product Image */}
             <div className="relative">
-              <div className="sticky top-24">
-                <div className="relative rounded-2xl overflow-hidden border-2 border-[#D4AF37]/30 shadow-2xl">
-                  <div className="absolute top-4 left-4 bg-[#D4AF37] text-[#001b3a] px-4 py-2 rounded-full font-bold text-sm font-['Montserrat'] z-10">
-                    TODAY'S DROP
-                  </div>
-                  <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-full text-xs font-['Montserrat'] z-10 flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-[#D4AF37]" />
-                    <span>Exclusive</span>
-                  </div>
+              <div className="sticky top-28">
+                <div className="relative rounded-none overflow-hidden bg-gray-100">
                   <ImageWithFallback
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-[500px] md:h-[700px] object-cover"
+                    className="w-full h-[600px] md:h-[700px] object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#001b3a] via-transparent to-transparent"></div>
                 </div>
               </div>
             </div>
 
             {/* Product Details */}
-            <div className="space-y-6 md:pt-8">
-              <div>
-                <p className="text-[#D4AF37] text-sm font-semibold mb-2 font-['Montserrat'] tracking-wider">
-                  {product.tagline}
-                </p>
-                <h2 className="text-4xl md:text-5xl font-bold mb-4 font-['Playfair_Display'] leading-tight">
-                  {product.name}
-                </h2>
-                <p className="text-gray-300 leading-relaxed font-['Montserrat']">
-                  {product.description}
-                </p>
-              </div>
-
+            <div className="space-y-8">
               {/* Pricing */}
-              <div className="flex items-baseline gap-4">
-                <span className="text-5xl font-bold text-[#D4AF37] font-['Playfair_Display']">
-                  {product.price}
-                </span>
-                <span className="text-2xl text-gray-500 line-through font-['Montserrat']">
-                  {product.originalPrice}
-                </span>
-                <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold font-['Montserrat']">
-                  SAVE 29%
-                </span>
+              <div>
+                <div className="flex items-baseline gap-4 mb-4">
+                  <span className="text-5xl font-medium text-black font-['Montserrat']">
+                    {product.price}
+                  </span>
+                  <span className="text-2xl text-gray-400 line-through font-['Montserrat']">
+                    {product.originalPrice}
+                  </span>
+                </div>
+                <p className="text-sm text-gray-600 font-['Montserrat']">
+                  100% prepaid • Free shipping • 10-12 day delivery
+                </p>
               </div>
 
               {/* Countdown Timer */}
-              <div className="bg-black/40 border-2 border-[#D4AF37]/40 rounded-xl p-6">
-                <p className="text-center text-sm text-gray-300 mb-4 font-['Montserrat']">
-                  This Drop Vanishes In:
+              <div className="border border-gray-200 rounded-sm p-6 bg-gray-50">
+                <p className="text-center text-sm text-gray-600 mb-4 font-['Montserrat']">
+                  Available for
                 </p>
                 <CountdownTimer className="justify-center" />
               </div>
 
               {/* Progress Bar */}
-              <div className="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
+              <div className="border border-gray-200 rounded-sm p-6">
                 <ProgressBar
                   current={product.fabricLeft}
                   total={product.totalFabric}
                 />
               </div>
 
-              {/* Product Details Grid */}
-              <div className="grid grid-cols-2 gap-4">
+              {/* CTA Button */}
+              <button className="w-full bg-black hover:bg-gray-800 text-white font-medium py-5 rounded-sm text-base transition-all font-['Montserrat'] flex items-center justify-center gap-3">
+                Buy Now
+                <ArrowRight className="w-5 h-5" />
+              </button>
+
+              {/* Product Details */}
+              <div className="space-y-3 pt-4">
                 {Object.entries(product.details).map(([key, value]) => (
                   <div
                     key={key}
-                    className="bg-gray-900/50 rounded-lg p-4 border border-gray-800"
+                    className="flex justify-between py-3 border-b border-gray-200"
                   >
-                    <p className="text-xs text-gray-400 mb-1 font-['Montserrat'] uppercase">
+                    <p className="text-sm text-gray-500 font-['Montserrat']">
                       {key}
                     </p>
-                    <p className="text-sm text-white font-['Montserrat'] font-medium">
+                    <p className="text-sm text-black font-['Montserrat'] font-medium text-right max-w-[60%]">
                       {value}
                     </p>
                   </div>
                 ))}
-              </div>
-
-              {/* CTA Button - Desktop */}
-              <button className="hidden md:flex w-full bg-[#D4AF37] hover:bg-[#F4E4B0] text-[#001b3a] font-bold py-5 rounded-xl text-lg transition-all hover:scale-[1.02] hover:shadow-2xl hover:shadow-[#D4AF37]/50 font-['Montserrat'] items-center justify-center gap-3">
-                <Package className="w-6 h-6" />
-                SECURE YOUR PIECE NOW
-              </button>
-
-              {/* Scroll Indicator */}
-              <div className="flex items-center justify-center gap-2 text-sm text-gray-400 animate-bounce pt-4 font-['Montserrat']">
-                <span>Scroll to see past drops</span>
-                <ChevronDown className="w-4 h-4" />
               </div>
             </div>
           </div>
@@ -127,7 +117,7 @@ export function Home() {
       </section>
 
       {/* Trust Badges */}
-      <section className="px-6 md:px-12 py-8">
+      <section className="px-6 md:px-12 py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <TrustBadges />
         </div>

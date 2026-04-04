@@ -23,19 +23,19 @@ export function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#001b3a]/95 backdrop-blur-md border-b border-gray-800">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-black/10">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <div className="w-10 h-10 bg-[#D4AF37] rounded-lg flex items-center justify-center">
-              <span className="text-[#001b3a] font-bold text-xl font-['Playfair_Display']">12</span>
+          <Link to="/" className="flex items-center gap-3 hover:opacity-60 transition-opacity">
+            <div className="w-10 h-10 bg-black rounded-sm flex items-center justify-center">
+              <span className="text-white font-bold text-xl font-['Montserrat']">12</span>
             </div>
             <div>
-              <h1 className="text-xl font-bold font-['Playfair_Display'] text-[#D4AF37]">
+              <h1 className="text-xl font-semibold font-['Montserrat'] text-black">
                 12AM ETHNIC
               </h1>
-              <p className="text-xs text-gray-400 font-['Montserrat']">Daily Drop at Midnight</p>
+              <p className="text-xs text-gray-500 font-['Montserrat']">Daily at Midnight</p>
             </div>
           </Link>
 
@@ -45,16 +45,13 @@ export function Header() {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-['Montserrat'] transition-colors relative ${
+                className={`text-sm font-['Montserrat'] transition-all ${
                   isActive(link.path)
-                    ? 'text-[#D4AF37] font-semibold'
-                    : 'text-gray-300 hover:text-white'
+                    ? 'text-black font-medium'
+                    : 'text-gray-600 hover:text-black'
                 }`}
               >
                 {link.label}
-                {isActive(link.path) && (
-                  <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#D4AF37]"></div>
-                )}
               </Link>
             ))}
           </nav>
@@ -63,29 +60,29 @@ export function Header() {
           <div className="flex items-center gap-4">
             <Link
               to="/cart"
-              className="relative p-2 hover:bg-gray-800/50 rounded-lg transition-colors"
+              className="relative p-2 hover:bg-gray-100 rounded-lg transition-colors"
             >
-              <ShoppingCart className="w-5 h-5 text-gray-300" />
-              <span className="absolute top-0 right-0 w-4 h-4 bg-[#D4AF37] text-[#001b3a] text-xs font-bold rounded-full flex items-center justify-center">
+              <ShoppingCart className="w-5 h-5 text-gray-700" />
+              <span className="absolute top-0 right-0 w-4 h-4 bg-black text-white text-xs font-bold rounded-full flex items-center justify-center">
                 0
               </span>
             </Link>
             <Link
               to="/account"
-              className="p-2 hover:bg-gray-800/50 rounded-lg transition-colors"
+              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
             >
-              <User className="w-5 h-5 text-gray-300" />
+              <User className="w-5 h-5 text-gray-700" />
             </Link>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 hover:bg-gray-800/50 rounded-lg transition-colors"
+              className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
             >
               {mobileMenuOpen ? (
-                <X className="w-6 h-6 text-gray-300" />
+                <X className="w-6 h-6 text-gray-700" />
               ) : (
-                <Menu className="w-6 h-6 text-gray-300" />
+                <Menu className="w-6 h-6 text-gray-700" />
               )}
             </button>
           </div>
@@ -93,8 +90,8 @@ export function Header() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <nav className="lg:hidden mt-4 pb-4 border-t border-gray-800 pt-4">
-            <div className="flex flex-col gap-3">
+          <nav className="lg:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
+            <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
@@ -102,8 +99,8 @@ export function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`px-4 py-3 rounded-lg font-['Montserrat'] transition-colors ${
                     isActive(link.path)
-                      ? 'bg-[#D4AF37]/10 text-[#D4AF37] font-semibold'
-                      : 'text-gray-300 hover:bg-gray-800/50'
+                      ? 'bg-gray-100 text-black font-medium'
+                      : 'text-gray-600 hover:bg-gray-50'
                   }`}
                 >
                   {link.label}

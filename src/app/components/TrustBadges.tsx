@@ -20,20 +20,20 @@ export function TrustBadges() {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-8">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {badges.map((badge, index) => (
         <div
           key={index}
-          className="flex flex-col items-center text-center gap-3 p-6 bg-gray-900/50 rounded-lg border border-gray-800 hover:border-[#D4AF37]/30 transition-all"
+          className="flex flex-col items-center text-center gap-3 p-6 border border-gray-200 rounded-sm hover:border-black transition-all"
         >
-          <div className="w-12 h-12 rounded-full bg-[#D4AF37]/10 flex items-center justify-center">
-            <badge.icon className="w-6 h-6 text-[#D4AF37]" />
+          <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center">
+            <badge.icon className="w-6 h-6 text-black" />
           </div>
           <div>
-            <h4 className="text-sm font-semibold text-white font-['Montserrat'] mb-1">
+            <h4 className="text-sm font-medium text-black font-['Montserrat'] mb-1">
               {badge.title}
             </h4>
-            <p className="text-xs text-gray-400 font-['Montserrat']">
+            <p className="text-xs text-gray-500 font-['Montserrat']">
               {badge.description}
             </p>
           </div>

@@ -5,7 +5,7 @@ import { StickyBuyButton } from "../components/StickyBuyButton";
 
 export function RootLayout() {
   return (
-    <div className="min-h-screen bg-[#001b3a] text-white">
+    <div className="min-h-screen bg-white text-black">
       <Header />
       <main>
         <Outlet />
